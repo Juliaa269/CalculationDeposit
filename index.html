@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="myForm">
+        <p>
+            Введите стартовую сумму вложения:<input type="text" id="startSumm">
+        </p> 
+        <p>
+            Введите годовой %:<input type="text" id="percentYear">
+        </p> 
+        <p>
+            Введите периодичность выплат:<input type="text" id="monthInPeriod">
+        </p> 
+        <p>
+            Введите срок вложения:<input type="text" id="totalTimeInMonth">
+        </p> 
+        
+        <button id="submit" onclick="summ()" type="submit">Посчитать</button>
+        <button type="reset" onclick="reset()">Очистить форму</button> 
+    </form>
+  <div>
+    <table id="table">
+     <tr>
+       <th>Month</th>
+       <th>Total Amount</th>
+       <th>Dividents</th>
+     </tr>
+    </table>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
