@@ -1,0 +1,68 @@
+From 12880e5a1f30c0ebf1eafac408c84a92ae0e8b08 Mon Sep 17 00:00:00 2001
+From: Sergii Bilyi <kartanisoid@gmail.com>
+Date: Fri, 12 Mar 2021 13:39:01 +0200
+Subject: [PATCH] fixed reload
+
+---
+ index.html |  2 +-
+ script.js  | 20 ++++++++++++++------
+ 2 files changed, 15 insertions(+), 7 deletions(-)
+
+diff --git a/index.html b/index.html
+index 869d457..1872556 100644
+--- a/index.html
++++ b/index.html
+@@ -22,7 +22,7 @@
+             Введите срок вложения:<input type="text" id="totalTimeInMonth">
+         </p> 
+         
+-        <button id="submit" onclick="summ()" type="submit">Посчитать</button>
++        <button id="submit">Посчитать</button>
+         <button type="reset" onclick="reset()">Очистить форму</button> 
+     </form>
+   <div>
+diff --git a/script.js b/script.js
+index 0522515..91952ca 100644
+--- a/script.js
++++ b/script.js
+@@ -17,11 +17,12 @@ let rounded = function(number){
+ }
+ 
+ function summ() {
+-    $("#table tr").remove(); 
++    console.log("s")
++    $("#table tr").remove();
+     // document.getElementById('resetTable').reset();
+     let startSumm = +document.getElementById('startSumm').value;
+     let percentYear = +document.getElementById('percentYear').value;
+-    let monthInPeriod = +document.getElementById('monthInPeriod').value;
++    // let monthInPeriod = +document.getElementById('monthInPeriod').value;
+     let totalTimeInMonth = +document.getElementById('totalTimeInMonth').value;;
+     let endSumm = startSumm;
+ 
+@@ -33,9 +34,16 @@ function summ() {
+     console.log(`You earn ${endSumm-startSumm}`);
+ }
+ 
+-function reset() {
+-    document.getElementById("myForm").reset();
+-}
++// function reset() {
++    // document.getElementById("myForm").reset();
++// }
+ 
+ // 1 | 1000 | 8.33
+-// 2 | 1008 | 8.4
+\ No newline at end of file
++// 2 | 1008 | 8.4
++
++$(function () {
++    $("#submit").click(function (e) {
++        e.preventDefault();
++        summ()
++    });
++});
+\ No newline at end of file
+-- 
+2.30.2
+
